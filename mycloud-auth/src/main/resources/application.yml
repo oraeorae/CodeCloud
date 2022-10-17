@@ -1,0 +1,22 @@
+server:
+  port: 2000
+
+spring:
+  application:
+    name:
+      mycloud-auth
+
+  datasource:
+    url: jdbc:mysql://112.124.9.174:3306/mycloud-ums?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: wc
+    password: 1140
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr:
+          112.124.9.174:8848
+
+
+

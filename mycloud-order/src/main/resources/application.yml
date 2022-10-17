@@ -1,0 +1,34 @@
+server:
+  port: 8401
+
+alipay:
+  alipay_public_key: xxx
+  app_id: 2021000117672854
+  charset: utf-8
+  gatewayUrl: https://openapi.alipaydev.com/gateway.do
+  merchant_private_key: xxxx
+  #此处先使用demo的回调接口页面
+  notify_url: http://4wa8cx.natappfree.cc/alipay_trade_wap_pay_java_utf_8_Web_exploded/notify_url.jsp
+  return_url: http://4wa8cx.natappfree.cc/alipay_trade_wap_pay_java_utf_8_Web_exploded/return_url.jsp
+  sign_type: RSA2
+
+
+spring:
+  application:
+    name:
+      mycloud-order
+
+  datasource:
+    url: jdbc:mysql://112.124.9.174:3306/mycloud-oms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: wc
+    password: 1140
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr:
+          112.124.9.174:8848
+
+
+

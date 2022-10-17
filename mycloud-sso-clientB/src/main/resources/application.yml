@@ -1,0 +1,12 @@
+server:
+  port: 8082
+# 应用名称
+spring:
+  application:
+    name: ssoclient
+  redis:
+    host: 112.124.9.174
+sso:
+  server:
+    url: http://ssoserver.com:8080/login.html
+
