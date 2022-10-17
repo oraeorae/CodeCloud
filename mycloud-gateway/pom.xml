@@ -6,7 +6,8 @@
         <!-- 以下内容复制到子项目中 -->
         <groupId>com.example</groupId>
         <artifactId>mycloud</artifactId>
-        <version>0.0.1-SNAPSHOT</version> </parent>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
     <groupId>com.example</groupId>
     <artifactId>mycloud-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
