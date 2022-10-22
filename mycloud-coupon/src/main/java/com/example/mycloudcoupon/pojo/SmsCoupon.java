@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.io.Serializable;
+
 /**
  * @author Orall
  * @version 1.0
@@ -14,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @Data
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SmsCoupon {
+public class SmsCoupon implements Serializable{
     private Long id;
-    private boolean	 couponType;
+    private boolean couponType;
     private String couponImg;
     private String couponName;
     private Integer num;
@@ -25,7 +27,7 @@ public class SmsCoupon {
     private java.math.BigDecimal minPoint;
     private java.sql.Date startTime;
     private java.sql.Date endTime;
-    private boolean	 useType;
+    private boolean	useType;
     private String note;
     private Integer publishCount;
     private Integer useCount;
@@ -33,6 +35,6 @@ public class SmsCoupon {
     private java.sql.Date enableStartTime;
     private java.sql.Date enableEndTime;
     private String code;
-    private boolean	 memberLevel;
-    private boolean	 publish;
+    private boolean	memberLevel;
+    private boolean	publish;
 }

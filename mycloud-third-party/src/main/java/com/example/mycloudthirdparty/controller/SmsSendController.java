@@ -3,6 +3,7 @@ package com.example.mycloudthirdparty.controller;
 //https://blog.csdn.net/m0_51111980/article/details/126898347
 
 import com.example.mycloudthirdparty.component.SmsComponent;
+import mycloudcommon.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

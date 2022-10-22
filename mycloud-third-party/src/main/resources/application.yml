@@ -1,0 +1,25 @@
+server:
+  port: 5002
+
+spring:
+  application:
+    name:
+      mycloud-thirdparty
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr:
+          112.124.9.174:8848
+
+    alicloud:
+      access-key:
+      secret-key:
+      oss:
+        endpoint:
+        bucket:
+
+
+
+
+

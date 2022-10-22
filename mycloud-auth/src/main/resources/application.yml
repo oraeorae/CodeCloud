@@ -3,8 +3,7 @@ server:
 
 spring:
   application:
-    name:
-      mycloud-auth
+    name: mycloud-auth
 
   datasource:
     url: jdbc:mysql://112.124.9.174:3306/mycloud-ums?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
@@ -15,8 +14,16 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr:
-          112.124.9.174:8848
+        server-addr: 112.124.9.174:8848
+
+gitee:
+  oauth:
+    clientid:
+      016e1a545bb15504bfc220907f0adbca1979d4ad895bc45e53b2938a668b21f5
+    clientsecret:
+      6ed04271e7c97a71f8d6a9dda548648560e146a575aed6d72a23393ff1c6ec63
+    callback:
+      http://localhost:2000/oauth2/gitee/success
 
 
 

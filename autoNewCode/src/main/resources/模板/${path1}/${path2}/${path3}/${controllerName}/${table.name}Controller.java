@@ -41,16 +41,7 @@ public class <#list table.name?split('_') as s>${s?cap_first}</#list>Controller 
     @PostMapping("/insert")
     @ApiOperation(value = "添加数据")
     public ${returnValue} insert<#list table.name?split('_') as s>${s?cap_first}</#list>(@Valid <#list table.name?split('_') as s>${s?cap_first}</#list> <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>) {
-        try {
-            if( <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Service.insert<#list table.name?split('_') as s>${s?cap_first}</#list>(<#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>) >= 1 ){
-                return ${successFunction}("添加成功");
-            }else{
-                return ${successFunction}("添加失败");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ${failFunction}("服务器内部错误：" + e.toString());
-        }
+        return table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Service.insert<#list table.name?split('_') as s>${s?cap_first}</#list>(<#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>);
     }
 
 
@@ -64,12 +55,7 @@ public class <#list table.name?split('_') as s>${s?cap_first}</#list>Controller 
     @GetMapping("/get")
     @ApiOperation(value = "根据id获取单条数据")
     public ${returnValue} get<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(@RequestParam("${table.key?lower_case}") ${keyType} ${table.key?lower_case}) {
-        try {
-            return ${successFunction}(<#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Service.get<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(${table.key?lower_case}));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ${failFunction}(3001, "服务器内部错误：" + e.toString());
-        }
+        return <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Service.get<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(${table.key?lower_case});
     }
 
     /**
@@ -82,13 +68,8 @@ public class <#list table.name?split('_') as s>${s?cap_first}</#list>Controller 
     @GetMapping("/list/page")
     @ApiOperation(value = "分页查询数据")
     public ${returnValue} list<#list table.name?split('_') as s>${s?cap_first}</#list>ByPage(@RequestParam("page") int page) {
-        try {
-            //limit默认为10
-            return ${successFunction}(<#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Service.list<#list table.name?split('_') as s>${s?cap_first}</#list>ByPage(page,10));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ${failFunction}("服务器内部错误：" + e.toString());
-        }
+        //limit默认为10
+        return <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Service.list<#list table.name?split('_') as s>${s?cap_first}</#list>ByPage(page,10);
     }
 
     /**
@@ -101,16 +82,7 @@ public class <#list table.name?split('_') as s>${s?cap_first}</#list>Controller 
     @PutMapping("/update")
     @ApiOperation(value = "根据id修改数据")
     public ${returnValue} update<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(@Valid <#list table.name?split('_') as s>${s?cap_first}</#list> <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>) {
-        try {
-            if( <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Service.update<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(<#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>) >= 1 ){
-                return ${successFunction}("修改成功");
-            }else{
-                return ${successFunction}("修改失败");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ${failFunction}("服务器内部错误：" + e.toString());
-        }
+        return <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Service.update<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(<#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>);
     }
 
     /**
@@ -122,12 +94,7 @@ public class <#list table.name?split('_') as s>${s?cap_first}</#list>Controller 
     @GetMapping("/list")
     @ApiOperation(value = "查询所有数据")
     public ${returnValue} list<#list table.name?split('_') as s>${s?cap_first}</#list>() {
-        try {
-            return ${successFunction}(<#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Service.list<#list table.name?split('_') as s>${s?cap_first}</#list>());
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ${failFunction}("服务器内部错误：" + e.toString());
-        }
+        return <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Service.list<#list table.name?split('_') as s>${s?cap_first}</#list>();
     }
 
     /**
@@ -140,16 +107,7 @@ public class <#list table.name?split('_') as s>${s?cap_first}</#list>Controller 
     @DeleteMapping("/delete")
     @ApiOperation(value = "删除数据")
     public ${returnValue} delete<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(@RequestParam("${table.key?lower_case}") ${keyType} ${table.key?lower_case}) {
-        try {
-            if( <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Service.delete<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(${table.key?lower_case}) >= 1 ){
-                return ${successFunction}("删除成功");
-            }else{
-                return ${successFunction}("删除失败");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ${failFunction}("服务器内部错误：" + e.toString());
-        }
+        return <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Service.delete<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(${table.key?lower_case});
     }
 
 }

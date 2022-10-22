@@ -25,8 +25,9 @@ public class <#list table.name?split('_') as s>${s?cap_first}</#list>ServiceImpl
      * @date ${.now?date}
      */
     @Override
-    public List<<#list table.name?split('_') as s>${s?cap_first}</#list>> list<#list table.name?split('_') as s>${s?cap_first}</#list>(){
-        return <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Mapper.list<#list table.name?split('_') as s>${s?cap_first}</#list>();
+    public ${returnValue} list<#list table.name?split('_') as s>${s?cap_first}</#list>(){
+        List<<#list table.name?split('_') as s>${s?cap_first}</#list>> data = <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Mapper.list<#list table.name?split('_') as s>${s?cap_first}</#list>();
+        return ${successFunction}(data);
     }
 
     /**
@@ -37,8 +38,9 @@ public class <#list table.name?split('_') as s>${s?cap_first}</#list>ServiceImpl
      * @date ${.now?date}
      */
     @Override
-    public <#list table.name?split('_') as s>${s?cap_first}</#list> get<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(${keyType} ${table.key?lower_case}){
-        return <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Mapper.get<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(${table.key?lower_case});
+    public ${returnValue}  get<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(${keyType} ${table.key?lower_case}){
+        <#list table.name?split('_') as s>${s?cap_first}</#list> data =  <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Mapper.get<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(${table.key?lower_case});
+        return ${successFunction}(data);
     }
 
     /**
@@ -50,10 +52,11 @@ public class <#list table.name?split('_') as s>${s?cap_first}</#list>ServiceImpl
      * @date ${.now?date}
      */
     @Override
-    public List<<#list table.name?split('_') as s>${s?cap_first}</#list>> list<#list table.name?split('_') as s>${s?cap_first}</#list>ByPage(int page, int limit){
+    public ${returnValue}  list<#list table.name?split('_') as s>${s?cap_first}</#list>ByPage(int page, int limit){
         int first = (page - 1) * limit;
         int second = limit;
-        return <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Mapper.list<#list table.name?split('_') as s>${s?cap_first}</#list>ByPage(first,second);
+        List<<#list table.name?split('_') as s>${s?cap_first}</#list>> data = <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Mapper.list<#list table.name?split('_') as s>${s?cap_first}</#list>ByPage(first,second);
+        return ${successFunction}(data);
     }
 
     /**
@@ -64,8 +67,12 @@ public class <#list table.name?split('_') as s>${s?cap_first}</#list>ServiceImpl
      * @date ${.now?date}
      */
     @Override
-    public int insert<#list table.name?split('_') as s>${s?cap_first}</#list>(<#list table.name?split('_') as s>${s?cap_first}</#list> <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>){
-        return <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Mapper.insert<#list table.name?split('_') as s>${s?cap_first}</#list>(<#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>);
+    public ${returnValue} insert<#list table.name?split('_') as s>${s?cap_first}</#list>(<#list table.name?split('_') as s>${s?cap_first}</#list> <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>){
+        if( <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Mapper.insert<#list table.name?split('_') as s>${s?cap_first}</#list>(<#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>) >= 1 ){
+            return ${successFunction}("添加成功");
+        }else{
+            return ${successFunction}("添加失败");
+        }
     }
 
     /**
@@ -76,8 +83,12 @@ public class <#list table.name?split('_') as s>${s?cap_first}</#list>ServiceImpl
      * @date ${.now?date}
      */
     @Override
-    public int update<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(<#list table.name?split('_') as s>${s?cap_first}</#list> <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>){
-        return <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Mapper.update<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(<#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>);
+    public ${returnValue} update<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(<#list table.name?split('_') as s>${s?cap_first}</#list> <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>){
+        if( <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Mapper.update<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(<#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>) >= 1){
+            return ${successFunction}("修改成功");
+        }else{
+            return ${successFunction}("修改失败");
+        }
     }
 
     /**
@@ -88,7 +99,11 @@ public class <#list table.name?split('_') as s>${s?cap_first}</#list>ServiceImpl
      * @date ${.now?date}
      */
     @Override
-    public int delete<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(${keyType} ${table.key?lower_case}){
-        return <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Mapper.delete<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(${table.key?lower_case});
+    public ${returnValue} delete<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(${keyType} ${table.key?lower_case}){
+        if( <#list table.name?split('_') as s><#if s_index=0>${s?lower_case}<#else>${s?cap_first}</#if></#list>Mapper.delete<#list table.name?split('_') as s>${s?cap_first}</#list>By${table.key?cap_first}(${table.key?lower_case}) >= 1){
+            return ${successFunction}("删除成功");
+        }else{
+            return ${successFunction}("删除失败");
+        }
     }
 }

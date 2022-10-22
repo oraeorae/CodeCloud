@@ -1,7 +1,7 @@
 package com.example.mycloudthirdparty.component;
 
-import com.sun.deploy.net.HttpResponse;
 import lombok.Data;
+import mycloudcommon.utils.HttpUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;

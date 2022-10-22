@@ -1,1 +1,41 @@
+server:
+  port: 88
+
+spring:
+  application:
+    name:
+      mycloud-gateway
+  main:
+    web-application-type: reactive
+  cloud:
+    nacos:
+      discovery:
+        server-addr:
+          112.124.9.174:8848
+
+    gateway:
+      routes:                           # 网关路由配置
+        - id: test_route                # 路由id，自定义，只要唯一即可
+          uri: https://www.baidu.com    # 路由的目标地址 (直接写死地址的方式，不推荐)
+          predicates:
+            - Query=url,baidu           # 按照参数匹配，一个是属性名一个为属性值
+
+        - id: qq_route
+          uri: https://www.qq.com
+          predicates:
+            - Query=url,qq
+
+        - id: mycloud-auth            # 路由id，自定义，只要唯一即可
+          uri: lb://mycloud-auth   # 路由的目标地址 lb是负载均衡，后面跟服务名称(推荐)
+          predicates:
+            - Path=/api/auth/**    # 按照路径匹配，以/api/auth/开头的请求就符合要求
+
+        - id: mycloud-coupon            # 路由id，自定义，只要唯一即可
+          uri: lb://mycloud-coupon   # 路由的目标地址 lb是负载均衡，后面跟服务名称(推荐)
+          predicates:
+            - Path=/api/coupon/**    # 按照路径匹配，以/api/coupon/开头的请求就符合要求
+
+
+
+
 

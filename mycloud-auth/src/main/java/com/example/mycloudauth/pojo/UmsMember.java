@@ -24,7 +24,7 @@ public class UmsMember {
     private String email;
     private String header;
     private Integer gender;
-    private java.sql.Date	 birth;
+    private java.sql.Date birth;
     private String city;
     private String job;
     private String sign;

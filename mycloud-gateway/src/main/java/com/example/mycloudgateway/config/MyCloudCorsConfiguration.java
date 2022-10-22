@@ -22,7 +22,7 @@ public class MyCloudCorsConfiguration {
         corsConfiguration.addAllowedHeader("*");
         // 允许跨域的请求方式
         corsConfiguration.addAllowedMethod("*");
-        // 允许跨域的请求来源
+        // 允许跨域的请求来源（关键）
         corsConfiguration.addAllowedOrigin("*");
         // 是否允许携带cookie跨域
         corsConfiguration.setAllowCredentials(true);
