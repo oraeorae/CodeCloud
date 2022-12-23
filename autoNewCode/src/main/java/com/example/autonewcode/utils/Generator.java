@@ -20,6 +20,7 @@ public class Generator {
     private Configuration cfg;
 
     public Generator(String templatePath, String outPath) throws Exception {
+
         this.outPath = outPath;
         //实例化Configuration对象
         cfg = new Configuration();

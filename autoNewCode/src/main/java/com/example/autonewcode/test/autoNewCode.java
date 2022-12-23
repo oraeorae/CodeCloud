@@ -21,11 +21,11 @@ public class autoNewCode {
         String packagename = "com.example.mycloudmember";
         String projectEngName = "qaq";
         //配置数据库（数据库IP,数据库端口，数据库名，数据库用户名，数据库密码，数据库类型）
-        String ip = "112.124.9.174";
+        String ip = "8.134.120.93";
         String port = "3306";
-        String db = "mycloud_ums";
-        String username = "wc";
-        String password = "1140";
+        String db = "code-generator";
+        String username = "root";
+        String password = "root";
         String dbKind = "MYSQL";
         //生成代码的位置（生成在当前路径的target上）
         String fileUrl = System.getProperty("user.dir")+new File("\\target");
